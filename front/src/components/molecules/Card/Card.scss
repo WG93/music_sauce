@@ -1,0 +1,33 @@
+@import 'styles/base.scss';
+
+.card {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.card__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 40rem;
+    padding: 1rem 3rem;
+    border: $border-base;
+    background-color: $background-color;
+    border-radius: 0.25rem;
+    @include title-huge;
+}
+
+.card__content.has-children {
+    @include title-big;
+}
+
+.card__hint {
+    font-style: italic;
+    @include body-normal;
+    color: $blue-50;
+}

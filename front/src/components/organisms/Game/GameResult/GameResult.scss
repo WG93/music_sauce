@@ -1,0 +1,12 @@
+@import 'styles/base.scss';
+
+.game-result {
+}
+
+.game-result .card__content.has-children {
+    @include title-huge;
+}
+
+.game-result .card__content {
+    @include title-normal;
+}

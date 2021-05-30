@@ -1,0 +1,42 @@
+@import './colors.scss';
+
+// colors
+$background-color: $blue-80;
+$primary-font-color: $gray-10;
+$border-base: 0.1rem solid $blue-70;
+
+// sizes
+$header-height: 3rem;
+
+@mixin title-huge {
+    font-size: 2rem;
+    font-weight: 500;
+    color: $primary-font-color;
+}
+
+@mixin title-big {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $primary-font-color;
+}
+
+@mixin title-normal {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $primary-font-color;
+}
+
+@mixin body-huge {
+    font-size: 1.5rem;
+    color: $primary-font-color;
+}
+
+@mixin body-big {
+    font-size: 1rem;
+    color: $primary-font-color;
+}
+
+@mixin body-normal {
+    font-size: 0.75rem;
+    color: $primary-font-color;
+}
