@@ -1,11 +1,11 @@
 export interface QuestionType {
     title: string;
-    content: {
-        type: 'text' | 'image';
+    content?: {
+        type: 'text' | 'image' | 'music';
         data: any;
     };
     hint?: string;
-    answers?: string[];
+    choices?: string[];
     time: number;
 }
 

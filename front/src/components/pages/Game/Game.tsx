@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 import { useTimer } from '../../../hooks';
 import {
     gameInitialState,
@@ -21,9 +21,14 @@ import './Game.scss';
 const Game = () => {
     const [collapsed, setCollapsed] = useState(true);
     const [state, dispatch] = useReducer(gameReducer, gameInitialState);
-    const { timer, setTime, startTimer, resetTimer } = useTimer({
-        onTimerFinish: () => dispatch(setStatus(GameStatusEnum.RESULT)),
-    });
+    const { timer, setTime, startTimer, resetTimer } = useTimer(
+        useMemo(
+            () => ({
+                onTimerFinish: () => dispatch(setStatus(GameStatusEnum.RESULT)),
+            }),
+            [],
+        ),
+    );
 
     useEffect(() => {
         if (state.question) {
@@ -80,7 +85,7 @@ const Game = () => {
             <Layout.Footer className="game__footer">
                 {state.status === GameStatusEnum.QUESTION && state.question && (
                     <GameInputs
-                        answers={state.question.answers}
+                        choices={state.question.choices}
                         onSubmit={(value) =>
                             dispatch(setAnswers([value, 'secondValue']))
                         }

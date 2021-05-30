@@ -1,0 +1,17 @@
+.music {
+    width: fit-content;
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.music__icon {
+    font-size: 3rem;
+}
+
+.music__selector {
+    width: 100%;
+}

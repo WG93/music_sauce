@@ -2,7 +2,7 @@ import { Timer } from '../../../atoms';
 
 import './GameInfos.scss';
 
-interface GameInfosProps {
+export interface GameInfosProps {
     timer?: {
         value: number;
     };

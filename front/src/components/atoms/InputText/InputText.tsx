@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import './InputText.scss';
 
-interface InputTextProps {
+export interface InputTextProps {
     onSubmit: (value: string) => void;
 }
 

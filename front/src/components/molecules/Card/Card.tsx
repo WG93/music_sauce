@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 import './Card.scss';
 
-interface CardProps {
+export interface CardProps {
     title: string;
     className?: string;
     children?: ReactNode;
