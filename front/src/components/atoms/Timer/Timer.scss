@@ -1,0 +1,9 @@
+@import 'styles/base.scss';
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    @include body-huge;
+}

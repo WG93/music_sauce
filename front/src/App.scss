@@ -1,0 +1,19 @@
+@import 'styles/base.scss';
+
+.app {
+    width: 100vw;
+    height: 100vh;
+}
+
+.app .ant-btn {
+    @include body-normal;
+    background-color: $blue-70;
+    border: 1px solid $blue-40;
+
+    &:hover,
+    &:focus {
+        background-color: $blue-50;
+        border-color: $blue-10;
+        color: $blue-10;
+    }
+}

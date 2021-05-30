@@ -1,0 +1,18 @@
+@import 'styles/base.scss';
+
+.input-text {
+}
+
+.input-text.ant-input {
+    border: $border-base;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: $blue-90;
+    @include title-normal;
+
+    &:focus,
+    &:hover {
+        box-shadow: none;
+        border: $border-base;
+    }
+}

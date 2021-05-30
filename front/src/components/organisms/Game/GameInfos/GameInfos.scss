@@ -1,0 +1,10 @@
+@import 'styles/base.scss';
+
+.game__infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0 2rem;
+    @include body-big;
+}
