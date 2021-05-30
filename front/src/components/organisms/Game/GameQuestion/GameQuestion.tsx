@@ -1,10 +1,10 @@
-import { Image } from '../../../atoms';
+import { Image, Music } from '../../../atoms';
 import { Card } from '../../../molecules';
 import { QuestionType } from '../types';
 
 import './GameQuestion.scss';
 
-interface GameQuestionProps {
+export interface GameQuestionProps {
     question: QuestionType;
 }
 
@@ -19,6 +19,7 @@ const GameQuestion = ({ question }: GameQuestionProps) => {
                 <>
                     {type === 'text' && <div>{data}</div>}
                     {type === 'image' && <Image src={data} alt="alt" />}
+                    {type === 'music' && <Music url={data} />}
                 </>
             ) : null}
         </Card>

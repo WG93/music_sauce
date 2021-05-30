@@ -2,14 +2,14 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 
 import './Timer.scss';
 
-interface TimerProps {
+export interface TimerProps {
     value: number;
 }
 
 const Timer = ({ value }: TimerProps) => (
     <div className="timer">
         <ClockCircleOutlined />
-        {value}
+        <div className="timer__value">{value}</div>
     </div>
 );
 

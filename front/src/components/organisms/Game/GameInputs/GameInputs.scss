@@ -2,3 +2,15 @@
 
 .game-inputs {
 }
+
+.game__inputs__choices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.game__inputs__choices .choice {
+    flex: 1 1 45%;
+}

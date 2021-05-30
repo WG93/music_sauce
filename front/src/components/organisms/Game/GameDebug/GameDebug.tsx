@@ -1,5 +1,6 @@
 import { Button } from 'antd';
-import { Dispatch } from 'react';
+import { Dispatch, useEffect, useState } from 'react';
+import { Questions, Results } from '../../../../debug';
 import {
     GameActions,
     GameState,
@@ -8,41 +9,6 @@ import {
     setResult,
     setStatus,
 } from '../../../../store';
-import { QuestionType, ResultType } from '../types';
-
-const Questions: QuestionType[] = [
-    {
-        title: 'Quel est le grand philosophe qui a dit ça ?',
-        content: {
-            type: 'text',
-            data: "Il est compliqué d'écrire sur les voyages dans le temps",
-        },
-        hint: 'ses facile',
-        time: 5,
-    },
-    {
-        title: `Comment s'appelle ce personnage de Naruto ?`,
-        content: {
-            type: 'image',
-            data: 'https://fr.techtribune.net/wp-content/uploads/2020/10/jujutsu-kaisen-sukuna-domain-expansion-malevolent-shrine-anime-1242150-1280x0.jpeg',
-        },
-        time: 5,
-    },
-];
-
-const Results: ResultType[] = [
-    {
-        answer: 'Karim Debbache',
-        description:
-            "Et oui en effet il est compliqué d'écrire sur les voyages dans le temps !",
-        author: 'Samee',
-    },
-    {
-        answer: 'Ryomen Sukuna',
-        description: 'Bande de cons',
-        author: 'Mayday',
-    },
-];
 
 interface GameDebugProps {
     state: GameState;
@@ -55,6 +21,13 @@ interface GameDebugProps {
 
 const GameDebug = ({ state, dispatch, collapsedState }: GameDebugProps) => {
     const { collapsed, setCollapsed } = collapsedState;
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        dispatch(setQuestion(Questions[index]));
+        dispatch(setResult(Results[index]));
+        dispatch(setStatus(GameStatusEnum.QUESTION));
+    }, [index]);
 
     return (
         <>
@@ -79,11 +52,15 @@ const GameDebug = ({ state, dispatch, collapsedState }: GameDebugProps) => {
                 Toggle status
             </Button>
             <div>Last answer: {state.answers.join(', ')}</div>
-            <Button onClick={() => dispatch(setQuestion(Questions[1]))}>
+            <Button
+                onClick={() => {
+                    setIndex((index) =>
+                        index + 1 > Questions.length - 1 ? 0 : index + 1,
+                    );
+                }}
+                disabled={state.status !== GameStatusEnum.RESULT}
+            >
                 Set question
-            </Button>
-            <Button onClick={() => dispatch(setResult(Results[1]))}>
-                Set result
             </Button>
             <Button onClick={() => setCollapsed(!collapsed)}>
                 Close sider

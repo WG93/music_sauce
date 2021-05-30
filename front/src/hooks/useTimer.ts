@@ -31,7 +31,7 @@ const useTimer = ({ onTimerFinish }: UseTimerParams): UseTimerReturn => {
     useEffect(() => {
         const intervalId =
             timer > 0 &&
-            setInterval(() => {
+            setTimeout(() => {
                 setTimer((timer) => {
                     if (timer - 1 <= 0) {
                         onTimerFinish();
@@ -40,7 +40,7 @@ const useTimer = ({ onTimerFinish }: UseTimerParams): UseTimerReturn => {
                     return timer - 1;
                 });
             }, 1000);
-        return () => clearInterval(intervalId as any);
+        return () => clearTimeout(intervalId as any);
     }, [timer, onTimerFinish]);
 
     return {

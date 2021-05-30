@@ -3,7 +3,7 @@ import { ResultType } from '../types';
 
 import './GameResult.scss';
 
-interface GameResultProps {
+export interface GameResultProps {
     result: ResultType;
 }
 
