@@ -17,6 +17,8 @@ const Header = ({ children, className }: HeaderProps) => (
     </AntLayout.Header>
 );
 
+Header.displayName = 'Header';
+
 interface ContentProps extends LayoutChildrenProps {}
 
 const Content = ({ children, className }: ContentProps) => (
@@ -24,6 +26,8 @@ const Content = ({ children, className }: ContentProps) => (
         {children}
     </AntLayout.Content>
 );
+
+Content.displayName = 'Content';
 
 interface SiderProps extends LayoutChildrenProps {
     width?: string;
@@ -48,6 +52,8 @@ const Sider = ({
     </AntLayout.Sider>
 );
 
+Sider.displayName = 'Sider';
+
 interface FooterProps extends LayoutChildrenProps {}
 
 const Footer = ({ children, className }: FooterProps) => (
@@ -56,6 +62,8 @@ const Footer = ({ children, className }: FooterProps) => (
     </AntLayout.Footer>
 );
 
+Footer.displayName = 'Footer';
+
 interface LayoutProps {
     children: ReactNode;
 }
@@ -63,10 +71,18 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
     const childs = Children.toArray(children);
 
-    const HeaderElem = childs.find(({ type }: any) => type.name === 'Header');
-    const ContentElem = childs.find(({ type }: any) => type.name === 'Content');
-    const SiderElem = childs.find(({ type }: any) => type.name === 'Sider');
-    const FooterElem = childs.find(({ type }: any) => type.name === 'Footer');
+    const HeaderElem = childs.find(
+        ({ type }: any) => type.displayName === 'Header',
+    );
+    const ContentElem = childs.find(
+        ({ type }: any) => type.displayName === 'Content',
+    );
+    const SiderElem = childs.find(
+        ({ type }: any) => type.displayName === 'Sider',
+    );
+    const FooterElem = childs.find(
+        ({ type }: any) => type.displayName === 'Footer',
+    );
 
     return (
         <AntLayout className="layout">
