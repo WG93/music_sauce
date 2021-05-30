@@ -1,1 +1,1 @@
-export { default as ChatController } from "./chat";
+export { default as SocketController } from "./base";
