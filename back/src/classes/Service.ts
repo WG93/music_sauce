@@ -1,5 +1,5 @@
 interface IService<TInstance> {
-  start(): TInstance;
+  start(): TInstance | Promise<TInstance>;
   getApp(): TInstance | never;
 }
 
@@ -13,7 +13,7 @@ abstract class Service<TInstance> implements IService<TInstance> {
     return this.app;
   }
   
-  public abstract start(): TInstance
+  public abstract start(): TInstance | Promise<TInstance>
 }
 
 export default Service;

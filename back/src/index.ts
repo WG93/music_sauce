@@ -1,14 +1,15 @@
 import dotenv from "dotenv";
 import expressApp from "./express";
+import { asyncForEach } from "./helpers";
+import mongooseApp from "./mongoose";
 import httpServer from "./server";
 import socketApp from "./socket";
 
 dotenv.config();
 
-const start = async () => {
-  expressApp.start();
-  httpServer.start();
-  socketApp.start();
-};
-
-start();
+(() => asyncForEach([
+  mongooseApp,
+  expressApp,
+  httpServer,
+  socketApp,
+], s => s.start()))();

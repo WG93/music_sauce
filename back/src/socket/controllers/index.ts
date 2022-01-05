@@ -1,1 +1,1 @@
-export { default as SocketController } from "./base";
+export { default as SocketController } from "./room";
